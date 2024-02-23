@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Add your custom styles here */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #333;
+            padding: 1rem 0;
+        }
+
+        footer {
+            background-color: #333;
+            padding: 1rem 0;
+            color: #fff;
+        }
+
+        .bg-light {
+            background-color: #f8f9fa !important;
+        }
+
+        .text-dark {
+            color: #343a40 !important;
+        }
+
+        /* Add animation for the featured books carousel */
+        .carousel-item {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+        }
+
+        /* Add some spacing for the subscription form */
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        /* Additional styles for visual elements section */
+        .visual-elements {
+            text-align: center;
+            padding: 2em;
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1.5em;
+        }
+
+        .image-gallery {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .gallery-item {
+            width: 30%;
+            margin: 1em;
+        }
+
+        /* Additional styles for introduction section */
+        .introduction {
+            text-align: center;
+            padding: 2em;
+            background-color: #f8f9fa;
+        }
+
+        /* Additional styles for features section */
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            width: 30%;
+            margin: 1em;
+            padding: 1.5em;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+	header {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+	h1 {
+            font-size: 3em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            padding: 10px;
+            margin: 0;
+            background-image: linear-gradient(to right, #ffcb05, #f76a05);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+	.image-frame {
+            border: 5px solid #007bff; /* Border color for the frame */
+            padding: 10px; /* Padding inside the frame */
+            display: inline-block; /* Display as inline-block to wrap the content */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle box shadow for a highlighted effect */
+        }
+
+        .image-frame img {
+            max-width: 100%; /* Make sure the image doesn't exceed its container */
+            border-radius: 10px; /* Add border-radius for a rounded appearance */
+        }
+	h2 {
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            padding: 10px;
+            margin: 0;
+            background-image: linear-gradient(to right, #ffcb05, #f76a05);
+            -webkit-background-clip: text;
+            color: brown; /* Change the color property to brown */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            text-align: center; /* Center alignment */
+        }
+	p {
+    font-size: 16px; /* Set the font size */
+    font-family: 'Arial', sans-serif; /* Set the font family */
+    color:#000000:/* Set the text color */
+    line-height: 1.5; /* Set the line height for better readability */
+    /* Add any other styles you want to customize the paragraph */
+}
+	h2 {
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            padding: 10px;
+            margin: 0;
+            background-image: linear-gradient(to right, #ffcb05, #f76a05);
+            -webkit-background-clip: text;
+            color: brown; /* Change the color property to brown */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            text-align: center; /* Center alignment */
+        }
+    </style>
+    <title>Library System</title>
+</head>
+<body>
+
+    <header class="bg-dark text-white text-center py-3">
+        <h1>Knolwedge Library</h1>
+	
+        <nav>
+            <a href="#">Home</a> | 
+            <a href="#">Features</a> | 
+            <a href="#">Register</a> | 
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Image Carousel for Featured Books -->
+                <div id="bookCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\1.jpg"class="d-block w-100" alt="Book 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\2.jpg" class="d-block w-100" alt="Book 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\3.jpg" alt="Book 3">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#bookCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#bookCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>Explore our vast collection of books</h2>
+                <p>Discover a world of knowledge with our extensive library collection. From fiction to non-fiction, we have it all.</p>
+                <!-- Search Bar -->
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search for books...">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">Search</button>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-primary">Browse Books</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="introduction text-center">
+        <h2 class="section-title">About Us</h2>
+        <p>Welcome to the Library System, your gateway to a world of knowledge and literary exploration. Established in 20XX, our library has been dedicated to providing a diverse collection of books, resources, and services to our community.</p>
+        
+        <p>Our mission is to inspire and empower individuals through the joy of reading, fostering a love for learning and intellectual growth. Whether you are a student, a scholar, or a casual reader, we have something for everyone.</p>
+        
+        <p>Explore our meticulously curated collection that spans various genres, from classic literature to contemporary fiction, non-fiction, academic publications, and more. Our library is not just a repository of books; it's a vibrant hub for intellectual engagement and community interaction.</p>
+
+        <p>At the Library System, we strive to create a welcoming and inclusive environment. Our dedicated staff is here to assist you in finding the perfect book, conducting research, or simply enjoying a quiet space for reading and reflection.</p>
+
+        <p>Join us in our commitment to lifelong learning. Attend our events, book clubs, and workshops to connect with fellow bibliophiles and expand your horizons. We believe in the transformative power of literature to enrich lives and build a more informed and enlightened society.</p>
+
+        <!-- Additional content -->
+        <h2 class="sub-section-title">Our Vision</h2>
+        <p class="highlighted-text">To be a leading institution in providing quality education, fostering creativity, and nurturing well-rounded individuals equipped for a dynamic world.</p>
+
+        <h2 class="sub-section-title">Our Mission</h2>
+        <p class="highlighted-text">To inspire and empower students through a transformative education that emphasizes academic excellence, character development, and community engagement.</p>
+    </section>
+	
+
+
+    <section class="features">
+        <div class="feature">
+            <h2>Wide Selection</h2>
+            <p>Choose from a diverse range of books, covering various genres and topics.</p>
+            <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\4.jpg" class="d-block w-100" alt="Book 1" width="60px">
+        </div>
+
+        <div class="feature">
+            <h2>User-Friendly</h2>
+            <p>Our user interface is designed to make it easy for you to find and borrow books.</p>
+            <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\5.jpg" class="d-block w-100" alt="Book 2" width="60px">
+        </div>
+
+        <div class="feature">
+            <h2>Flexible Borrowing</h2>
+            <p>Enjoy flexible borrowing options with convenient return policies.</p>
+            <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\6.jpg" class="d-block w-100" alt="Book 3" width="60px">
+        </div>
+	<!-- Additional features -->
+    <div class="feature">
+        <h2>Online Reservations</h2>
+        <p>Reserve your favorite books online and pick them up at your convenience.</p>
+        <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\3.jpg" class="d-block w-100" alt="Book 4" width="60px">
+    </div>
+
+    <div class="feature">
+        <h2>Interactive Workshops</h2>
+        <p>Participate in engaging workshops and discussions on various literary topics.</p>
+        <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\1.jpg" class="d-block w-100" alt="Book 5" width="60px">
+    </div>
+
+    <div class="feature">
+        <h2>Digital Library Access</h2>
+        <p>Access our extensive digital library from the comfort of your home.</p>
+        <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\2.jpg" class="d-block w-100" alt="Book 6" width="60px">
+    </div>
+    </section>
+
+    <section class="container mt-5">
+        <h2 class="text-center mb-4">Featured Books</h2>
+        <div id="featuredCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\library.jpg" class="d-block w-100" alt="Book 1" width="60px">
+                </div>
+                <div class="carousel-item">
+                    <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\l2.jpg" class="d-block w-100" alt="Book 2" width="60px">
+                </div>
+                <div class="carousel-item">
+                    <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\l3.jpg" class="d-block w-100" alt="Book 3" width="60px">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#featuredCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#featuredCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="bg-light text-dark py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Register for our library</h2>
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputName">Name</label>
+                        <input type="text" class="form-control" id="inputName" placeholder="Your Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail">Email</label>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Your Email">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Library System</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Optional: Add your JavaScript for interactive elements
+        // For example, you can add a smooth scroll effect when clicking on navigation links.
+        $('a').on('click', function (event) {
+            if (this.hash !== '') {
+                event.preventDefault();
+                const hash = this.hash;
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800);
+            }
+        });
+    </script>
+
+</body>
+</html>

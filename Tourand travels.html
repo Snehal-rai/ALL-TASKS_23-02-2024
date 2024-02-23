@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madeup Tours and Travels</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .navbar li {
+            float: left;
+        }
+
+        .navbar a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Home Section */
+        .home-section {
+            text-align: center;
+            padding: 50px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+
+        .home-section h1 {
+            color: #333;
+        }
+
+        .home-section p {
+            color: #666;
+            font-size: 18px;
+        }
+
+        /* Swiper Container */
+        .swiper-container {
+            width: 80%;
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .swiper-slide:hover img {
+            transform: scale(1.1);
+        }
+
+        .spot-info {
+            padding: 20px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 60%;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Services Section */
+        #services {
+            text-align: center;
+            padding: 50px;
+            background-color: #f4f4f4;
+        }
+
+        .service-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: scale(1.05);
+        }
+
+        .service-card img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Login and Registration Form */
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .form-container:hover {
+            transform: scale(1.05);
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container label {
+            margin-bottom: 8px;
+        }
+
+        .form-container input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-container button {
+            padding: 12px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #555;
+        }
+    </style>
+    <!-- Add a new style block in your HTML file or include it in your external stylesheet -->
+<style>
+  .swiper-container {
+    width: 70%; /* Adjust the width as needed */
+    margin: auto;
+  }
+
+  .swiper-slide img {
+    width: 60%; /* Make the images fill the slide container */
+    border-radius: 50%; /* Apply circular format */
+    object-fit: cover; /* Maintain aspect ratio and cover the circular area */
+  }
+
+  .spot-info {
+    padding: 20px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#" onclick="openLoginForm()">Login</a></li>
+        <li><a href="#" onclick="openRegistrationForm()">Register</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#" onclick="openContactPopup()">Contact Us</a></li>
+    </ul>
+</nav>
+<div class="home-section" id="home">
+    <h1> Madeup Tour and Travels</h1>
+    <p>Welcome to Our Tour and Travels<p>
+    <p>Explore the world with our exciting tour packages. Plan your dream vacation with us!</p>
+</div>
+
+<!-- Swiper Container -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+            <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\Varanasi1.jpg" alt="Tourism Spot 1">
+            <div class="spot-info">
+                <h3>Varanasi</h3>
+                <p>Best Places to Visit in Varanasi: Shri Kashi Vishwanath Temple, Dashashwamedh Ghat, Manikarnika Ghat, Ramnagar Fort, Shri Durga Temple, Kaal Bhairav Temple, Sarnath Museum, Sankatmochan Temple</p>
+                <p>Things to Do in Varanasi: Seeking blessings at temples, enjoying delectable Banarasi food and sweetmeats, shopping for Banarasi silk sarees at Thateri Bazaar, Vishwanath Gali and Temple Bazaar</p>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\Agra.jpg" alt="Tourism Spot 2">
+            <div class="spot-info">
+                <h3>Agra</h3>
+                <p>Best Places to Visit in Agra: Agra Fort, Jama Masjid, Abkar’s Tomb, Itimad-ud-Daulah’s Tomb, Mehtab Bagh, Gurudwara Guru Ka Taal, Dolphin Water Park, Wildlife Conservation and Care Centre</p>
+                <p>Things to Do in Agra: Boat ride on Yamuna River, exploring popular monuments, watching the Light and Sound Show at Agra Fort, visiting Fatehpur Sikri</p>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\Coorg-2.jpg" alt="Tourism Spot 3">
+            <div class="spot-info">
+                <h3>Coorg</h3>
+                <p>Best Places to Visit in Coorg: Abbey Falls, Raja’s Seat, Shri Omkareshwara Temple, Government Museum Madikeri, Raja’s Tomb, Talakaveri, Madikeri Fort, Honnamana Kere Lake, Namdroling Monastery</p>
+                <p>Things to Do in Coorg: Spending quiet time near waterfalls, taking a walk-through coffee and spice plantations, enjoying river rafting, going on a wildlife safari at Nagarhole National Park, trekking to Tadiandamol Peak</p>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\udaipur.jpg" alt="Tourism Spot 4">
+            <div class="spot-info">
+                <h3>Udaipur</h3>
+                <p>Best Places to Visit in Udaipur: City Palace, Lake Pichola, Jag Mandir, Jagdish Temple, Fateh Sagar Lake, Sajjangarh Palace (Monsoon Palace), Shilpgram, Saheliyon Ki Bari</p>
+                <p>Things to Do in Udaipur: Boat ride on Lake Pichola, exploring historical palaces, enjoying traditional Rajasthani cuisine, shopping for handicrafts and textiles</p>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\Shillong-1.jpg" alt="Tourism Spot 5">
+            <div class="spot-info">
+                <h3>Shillong</h3>
+                <p>Best Places to Visit in Shillong: Umiam Lake, Elephant Waterfalls, Shillong Peak, Cathedral of Mary Help of Christians</p>
+                <p>Things to Do in Shillong: Enjoying the scenic beauty, exploring local markets, trekking to Shillong Peak, boating in Umiam Lake</p>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\delhi.jpg" alt="Tourism Spot 6">
+            <div class="spot-info">
+                <h3>Delhi</h3>
+                <p>Best Places to Visit in Delhi: India Gate, Qutub Minar, Humayun’s Tomb, Red Fort, Lotus Temple, Akshardham Temple, Raj Ghat, Jama Masjid</p>
+                <p>Things to Do in Delhi: Exploring historical monuments, shopping at local markets (Chandni Chowk, Sarojini Nagar), trying street food, visiting museums and art galleries</p>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\Goa.jpg" alt="Tourism Spot 7">
+            <div class="spot-info">
+                <h3>Goa</h3>
+                <p>Places to Visit in Goa: Palolem Beach, Dudhsagar Falls, Basilica of Bom Jesus, Aguada Fort, Baga Beach, Anjuna Beach, Calangute Beach, Shree Mangesha Temple, Immaculate Conception Church</p>
+                <p>Things to Do in Goa: Beach hopping, water sports, shopping at flea markets, visiting Portuguese-style churches, enjoying the nightlife, tasting authentic Goan cuisine</p>
+            </div>
+        </div>
+        <!-- Add more slides as needed -->
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Navigation -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+
+<!-- About Us Section -->
+    <div id="about" class="home-section">
+        <h2>About Us</h2>
+        <p>Madeup Tour and Travels is a leading travel agency dedicated to providing unforgettable travel experiences. With a team of passionate travelers and experts, we strive to make your journey memorable and hassle-free.</p>
+        <p>Our mission is to explore the beauty of the world and share it with you. We believe in creating moments that last a lifetime. Join us in the adventure of a lifetime!</p>
+    </div>
+
+    <!-- Services Section -->
+    <div id="services" class="home-section">
+        <h2>Our Services</h2>
+        <div class="service-card">
+            <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\Customized Itineraries.jpg" alt="Service Icon">
+            <h3>Customized Tours</h3>
+            <p>Personalized travel itineraries tailored to your preferences and interests.</p>
+        </div>
+        <div class="service-card">
+            <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\Guided Excursions.jpg" alt="Service Icon">
+            <h3>Guided Excursions</h3>
+            <p>Expert guides to enhance your travel experience and provide in-depth insights.</p>
+        </div>
+        <div class="service-card">
+            <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\Exclusive Packages.jpg" alt="Service Icon">
+            <h3>Exclusive Packages</h3>
+            <p>Unique and exclusive travel packages designed for a luxurious experience.</p>
+        </div>
+    </div>
+
+    <!-- Advanced Login Form -->
+<div id="loginForm" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeLoginForm()">&times;</span>
+        <h2>Welcome Back!</h2>
+        <p>Login to your account and start your journey with Madeup Tours and Travels.</p>
+        
+        <form action="#" method="post" onsubmit="return validateLogin()">
+            <label for="username">Username or Email:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username or email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox" name="remember"> Remember me
+                </label>
+                <a href="#" onclick="openForgotPasswordForm()">Forgot Password?</a>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+        <p>Not Registered? <a href="#" onclick="openRegistrationForm()">Register </a></p>
+    </div>
+</div>
+
+<!-- Forgot Password Form -->
+<div id="forgotPasswordForm" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeForgotPasswordForm()">&times;</span>
+        <h2>Forgot Password</h2>
+        <p>Enter your email address to reset your password.</p>
+
+        <form action="#" method="post" onsubmit="return validateForgotPassword()">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+            <button type="submit">Reset Password</button>
+        </form>
+
+        <p>Remember your password? <a href="#" onclick="openLoginForm()">Log In</a></p>
+    </div>
+</div>
+
+
+    <!-- Registration Form -->
+    <div id="registrationForm" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRegistrationForm()">&times;</span>
+            <h2>Registration</h2>
+            <form action="#" method="post" onsubmit="return validateRegistration()">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    // Initialize Swiper
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+    function validateRegistration() {
+        // Add your registration validation logic here
+        // For simplicity, return true for now
+        return true;
+    }
+</script>
+
+
+<!-- Contact Popup -->
+<div id="contactPopup" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeContactPopup()">&times;</span>
+        <h2>Contact Us</h2>
+        <p>Email: madeup.tour@ac.in</p>
+        <p>Phone: +91 9999999999</p>
+    </div>
+</div>
+<script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        // Modal functions and form validation
+        // (Include your validation logic for login and registration)
+        function
+  var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+</script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    // script.js
+
+    // Initialize Swiper
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+
+    // Modal functions
+    function openLoginForm() {
+        document.getElementById('loginForm').style.display = 'block';
+    }
+
+    function closeLoginForm() {
+        document.getElementById('loginForm').style.display = 'none';
+    }
+
+    function openRegistrationForm() {
+        document.getElementById('registrationForm').style.display = 'block';
+    }
+
+    function closeRegistrationForm() {
+        document.getElementById('registrationForm').style.display = 'none';
+    }
+
+    function openContactPopup() {
+        document.getElementById('contactPopup').style.display = 'block';
+    }
+
+    function closeContactPopup() {
+        document.getElementById('contactPopup').style.display = 'none';
+    }
+
+    // Close modals on outside click
+    window.onclick = function (event) {
+        var modals = document.getElementsByClassName('modal');
+        for (var i = 0; i < modals.length; i++) {
+            if (event.target == modals[i]) {
+                modals[i].style.display = 'none';
+            }
+        }
+    };
+</script>
+
+</body>
+</html>
