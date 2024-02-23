@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Homepage</title>
+    <!-- Bootstrap CSS (you can include it from a CDN or download it) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('C:/Users/HP/OneDrive/Pictures/Screenshots/images/school-image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding-top: 60px; /* Adjust the top padding to accommodate the fixed navbar */
+            color: #333; /* Set default text color */
+        }
+
+        header {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .logo img {
+            width: 50px; /* Set the desired width for your logo */
+            height: 50px; /* Set the desired height for your logo */
+            margin-right: 10px;
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            padding: 10px;
+            margin: 0;
+            background-image: linear-gradient(to right, #ffcb05, #f76a05);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        h3 {
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            padding: 10px;
+            margin: 0;
+            background-image: linear-gradient(to right, #ffcb05, #f76a05);
+            -webkit-background-clip: text;
+            color: black; /* Change the color property to red */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            text-align: center; /* Center alignment */
+        }
+
+        h2 {
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            padding: 10px;
+            margin: 0;
+            background-image: linear-gradient(to right, #ffcb05, #f76a05);
+            -webkit-background-clip: text;
+            color: brown; /* Change the color property to brown */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            text-align: center; /* Center alignment */
+        }
+
+        nav {
+            background-color: #343a40;
+        }
+
+        nav a {
+            color: #ffffff;
+            padding: 15px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #495057;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        .jumbotron {
+            background-color: #ffffff;
+            padding: 2rem 2rem;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .highlighted-text {
+            font-weight: bold;
+            color: #007bff; /* Highlight color */
+        }
+
+        .image-frame {
+            border: 5px solid #007bff; /* Border color for the frame */
+            padding: 10px; /* Padding inside the frame */
+            display: inline-block; /* Display as inline-block to wrap the content */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle box shadow for a highlighted effect */
+        }
+
+        .image-frame img {
+            max-width: 100%; /* Make sure the image doesn't exceed its container */
+            border-radius: 10px; /* Add border-radius for a rounded appearance */
+        }
+
+        /* Header and Footer Styles */
+        .navbar-dark {
+            background-color: #343a40;
+        }
+
+        .navbar-dark .navbar-brand {
+            color: #ffffff;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff;
+        }
+
+        .navbar-dark .navbar-toggler-icon {
+            background-color: #ffffff;
+        }
+
+        footer {
+    background-color:  #001f3f; /* Orange color code */
+    color: #ffffff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+
+	h5 {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    margin: 0;
+    background-image: linear-gradient(to right, #007bff, #0056b3); /* Blue color gradient */
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+
+    /* Animation effect */
+    animation: colorChange 3s infinite alternate;
+}
+
+@keyframes colorChange {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+
+h4 {
+    font-size: 1.6em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    margin: 0;
+    background-image: linear-gradient(to right, #ff0000, #cc0000); /* Red color gradient */
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+
+    /* Animation effect */
+    animation: colorChange 3s infinite alternate;
+}
+
+@keyframes colorChange {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+p {
+    font-size: 16px; /* Set the font size */
+    font-family: 'Arial', sans-serif; /* Set the font family */
+    color:#ff7f50; /* Set the text color */
+    line-height: 1.5; /* Set the line height for better readability */
+    /* Add any other styles you want to customize the paragraph */
+}
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <!-- Placeholder for school logo -->
+            <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\school.jpg" alt="School Logo">
+        </div>
+        <h1>Shikha Public School</h1>
+	<br>
+	<h3>"Shikha Public School: Igniting Minds, Shaping Futures!"</h3>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Admissions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Jumbotron Section -->
+        <div class="jumbotron text-center">
+    <h2 class="mb-4">Welcome to Shikha Public School</h2>
+<br>
+    <div class="image-frame">
+        <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\Hibbing_High_School_2014.jpg" class="img-fluid rounded" alt="School Image" width="500" height="300">
+
+    </div>
+</div>
+
+	<!-- About Us Section -->
+<section id="about-us" class="my-5 text-center">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h2 class="section-title">About Us</h2>
+            <p>Welcome to Shikha Public School, where education transcends textbooks and classrooms. Our commitment is to provide a dynamic and enriching learning experience that nurtures the holistic development of every student.</p>
+            <p>At Shikha Public School, we foster a love for learning, encourage critical thinking, and promote creativity. Our dedicated faculty, state-of-the-art facilities, and innovative teaching methods create an environment where students can thrive academically and personally.</p>
+            
+            <!-- Additional Feature: Vision and Mission -->
+            <h3 class="sub-section-title">Our Vision</h3>
+            <p class="highlighted-text">To be a leading institution in providing quality education, fostering creativity, and nurturing well-rounded individuals equipped for a dynamic world.</p>
+
+            <h3 class="sub-section-title">Our Mission</h3>
+            <p class="highlighted-text">To inspire and empower students through a transformative education that emphasizes academic excellence, character development, and community engagement.</p>
+	
+        </div>
+    </div>
+     <div class="core-team-section">
+            <h2>Our Core Team</h2>
+            <div class="row">
+                <div class="col-md-4 core-team-member">
+                    <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\1.jpg" alt="Core Team Member">
+                    <h4>Shubham Gupta </h4>
+                    <p>Principal </p>
+                </div>
+                <div class="col-md-4 core-team-member">
+                    <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\t2.jpg" alt="Core Team Member">
+                    <h4>Deepka Arora</h4>
+                    <p>Vice- principal </p>
+                </div>
+                <div class="col-md-4 core-team-member">
+                    <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\t3.jpg" alt="Core Team Member">
+                    <h4>Shirnivas Rawat</h4>
+                    <p>Academic Deans </p>
+                </div>
+            </div>
+        </div>
+</section>
+
+
+
+        <!-- Courses Section -->
+        <section id="courses" class="my-5">
+            <h2 class="text-center mb-4">Our Courses</h2>
+
+            <!-- Course Cards -->
+            <div class="row">
+                <!-- Course 1: Science -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\science.jpg" alt="Science Course" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Science</h5>
+                            <p class="card-text">Explore the wonders of the universe with our comprehensive science courses. Hands-on
+                                experiments and engaging lessons await you.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 2: Arts -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\artt.jpg"alt="Arts Course" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Arts</h5>
+                            <p class="card-text">Unleash your creativity with our arts courses. From painting to sculpture,
+                                discover and develop your artistic talents.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 3: Sports -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\sports.jpg" alt="Sports Course" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Sports</h5>
+                            <p class="card-text">Stay active and healthy with our sports courses. Whether it's soccer,
+                                basketball, or yoga, we have something for everyone.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Events Section -->
+        <h2 class="text-center mt-5 mb-4">Social Events</h2>
+        <!-- Event Cards -->
+        <div class="row">
+            <!-- Event 1: Annual Day Celebration -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\annual day.jpg" alt="Annual Day Celebration" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Annual Day Celebration</h5>
+                        <p class="card-text">Join us for a spectacular evening of performances, awards, and celebration during our
+                            annual day event.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 2: Cultural Fest -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\culture fest.jpg" alt="Cultural Fest" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Cultural Fest</h5>
+                        <p class="card-text">Experience the richness of our diverse culture through dance, music, and various
+                            cultural performances at our annual Cultural Fest.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 3: Sports Day -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\sports day.jpg" alt="Sports Day" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Sports Day</h5>
+                        <p class="card-text">Cheer for your favorite teams and athletes during our thrilling Sports Day. An exciting
+                            day full of competitions and sportsmanship.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+            <!-- Key Features Section -->
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <h4>Modern Facilities</h4>
+                    <p>Explore our cutting-edge facilities designed to provide a conducive environment for learning and personal
+                        growth.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Dedicated Faculty</h4>
+                    <p>Meet our experienced and passionate faculty members committed to nurturing the potential of every student.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Innovative Teaching</h4>
+                    <p>Experience innovative teaching methods that encourage curiosity, critical thinking, and a love for learning.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+        <!-- Admission Process Section -->
+        <section id="admission-process" class="my-5">
+            <h2 class="section-title">Admission Process</h2>
+            <div class="admission-process">
+                <p>Welcome to Shikha Public School! We are excited to have you join our school community. Our admission process is designed to ensure a smooth and transparent experience for both parents and students.</p>
+                <p>To apply for admission, please follow these simple steps:</p>
+                <ol>
+                    <li>Fill out the online admission form available on our website.</li>
+                    <li>Submit the required documents, including birth certificate, previous academic records, and any other relevant certificates.</li>
+                    <li>Attend the admission interview with our faculty to assess the student's suitability for our academic programs.</li>
+                    <li>Upon successful completion of the interview, you will receive an admission offer.</li>
+                    <li>Complete the enrollment process by submitting the required fees and completing any additional paperwork.</li>
+                </ol>
+                <p>If you have any questions or need assistance during the admission process, feel free to contact our admission office. We look forward to welcoming you to Shikha Public School!</p>
+            </div>
+        </section>
+
+        <!-- Core Team Section -->
+       
+
+        <!-- Footer Section -->
+        <footer class="footer mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3>Contact Us</h3>
+                        <p>Email: info@shikhaschool.com</p>
+                        <p>Phone: +1 (123) 456-7890</p>
+                        <p>Address: 123 School Street, Cityville</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Follow Us</h3>
+                        <p><a href="#">Facebook</a></p>
+                        <p><a href="#">Twitter</a></p>
+                        <p><a href="#">Instagram</a></p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Quick Links</h3>
+                        <p><a href="#">About Us</a></p>
+                        <p><a href="#">Courses</a></p>
+                        <p><a href="#">Admissions</a></p>
+                        <p><a href="#">Contact</a></p>
+                    </div>
+                </div>
+            </d
+    <div class="text-center py-3">
+        <p>&copy; 2024 Shikha Public School. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- ... (remaining code) ... -->
+
+
+    </div>
+
+    <!-- Bootstrap JS (you can include it from a CDN or download it) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

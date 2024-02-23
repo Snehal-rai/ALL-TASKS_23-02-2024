@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Listings</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #ccc;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .property-grid {
+            display: flex; /* Use Flexbox */
+            flex-wrap: wrap; /* Allow items to wrap */
+            justify-content: center; /* Align items in the center */
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .property-card {
+            background-color: #e0e0e0;
+            padding: 20px;
+            width: 300px; /* Set a fixed width for each card */
+            text-align: center;
+            position: relative; /* Positioning */
+        }
+
+        .property-card img {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .property-card h2 {
+            margin-top: 10px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .property-card p {
+            color: #666;
+        }
+
+        footer {
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #ccc;
+        }
+
+        /* Media Queries Section */
+        .media-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-top: 20px;
+            border: 2px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            position: relative; /* Positioning */
+            max-width: 800px; /* Added for illustration */
+            margin: 20px auto; /* Added for illustration */
+        }
+
+        @media screen and (max-width: 600px) {
+            .media-section {
+                text-align: center;
+            }
+        }
+
+        @media print {
+            .media-section {
+                display: none;
+            }
+        }
+
+        @media (pointer: fine) {
+            .media-section {
+                border: 2px dashed #ccc;
+            }
+        }
+
+        /* Additional Styling for Media Section */
+        .media-section img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .media-section img {
+                max-width: 300px;
+            }
+        }
+
+        /* Additional Features */
+        .additional-section {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin-top: 20px;
+            border: 2px solid #ccc;
+            position: relative; /* Positioning */
+            max-width: 600px; /* Adjusted max-width */
+            margin: 20px auto; /* Adjusted margin */
+        }
+
+        .additional-content {
+            text-align: center;
+        }
+
+        .additional-content h2 {
+            color: #333;
+            font-size: 1.8rem; /* Adjusted font size */
+            margin-bottom: 10px; /* Added margin bottom */
+        }
+
+        .additional-content p {
+            color: #666;
+            font-size: 1.2rem; /* Adjusted font size */
+            margin-bottom: 10px; /* Added margin bottom */
+        }
+
+        /* Search Bar Styles */
+        .search-bar {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-bar input[type="text"],
+        .search-bar select {
+            margin-right: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-bar button {
+            padding: 8px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Map Styles */
+        #map {
+            height: 400px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Featured Properties Styles */
+        .featured-properties {
+            margin-top: 20px;
+        }
+
+        .featured-properties h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            margin-top: 20px;
+        }
+
+        .contact-form h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+        }
+
+        .contact-form button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+        .additional-content {
+    text-align: center;
+}
+
+.additional-content h2 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.additional-content p {
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.neighborhoods {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.neighborhood {
+    margin: 0 20px;
+    max-width: 300px;
+}
+
+.neighborhood img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.neighborhood h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.neighborhood p {
+    color: #666;
+    font-size: 1rem;
+}
+/* Header Styles */
+header {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 100px; /* Adjust size as needed */
+}
+
+.header-text {
+    text-align: left;
+    flex-grow: 1; /* Allows the header text to occupy remaining space */
+}
+
+.heading {
+    text-align: center;
+}
+
+.heading h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.heading p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    text-align: right; /* Aligns contact info to the right */
+}
+
+.contact-info p {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.social-icons a {
+    margin-left: 10px;
+}
+
+.social-icons img {
+    width: 30px; /* Adjust size as needed */
+    vertical-align: middle;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+    <div class="header-content">
+        <div class="logo">
+            <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\n4.webp" alt="Dream Homes Realty Logo">
+        </div>
+        <div class="header-text">
+            <div class="heading">
+                <h1>Welcome to Dream Homes Realty</h1>
+                <p>Your key to finding the perfect home!</p>
+            </div>
+            <div class="contact-info">
+                <p>Contact us: 123-456-7890</p>
+                <p>Email: info@dreamhomesrealty.com</p>
+            </div>
+            <div class="social-icons">
+                <a href="#"><img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\twitter.jpg" alt="Twitter"></a>
+                <a href="#"><img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\instrgram.jpg" alt="Instagram"></a>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+    <!-- Media Queries Section -->
+    <section class="media-section">
+        <h2>Media Queries Section</h2>
+        <p>This section demonstrates the use of media queries.</p>
+        <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\house.jpg" alt="Media Image">
+    </section>
+    
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search by location...">
+        <select name="price-range">
+            <option value="">Price Range</option>
+            <option value="0-100000">$0 - $100,000</option>
+            <option value="100001-200000">$100,001 - $200,000</option>
+            <!-- Add more options as needed -->
+        </select>
+        <select name="bedrooms">
+            <option value="">Bedrooms</option>
+            <option value="1">1 Bedroom</option>
+            <option value="2">2 Bedrooms</option>
+            <!-- Add more options as needed -->
+        </select>
+        <button type="button">Search</button>
+    </div>
+
+    <!-- Property Listings -->
+    <main>
+        
+        <div class="property-grid">
+            <div class="property-card">
+                <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\house1.jpg" alt="Property 1">
+                <h2>Property 1</h2>
+                <p>3 bedrooms | 2 bathrooms | 1500 sqft</p>
+            </div>
+            <!-- Add more property cards as needed -->
+            <div class="property-card">
+                <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\house2.jpg" alt="Property 2">
+                <h2>Property 2</h2>
+                <p>4 bedrooms | 3 bathrooms | 2000 sqft</p>
+            </div>
+            <div class="property-card">
+                <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\house3.jpg" alt="Property 3">
+                <h2>Property 3</h2>
+                <p>2 bedrooms | 1 bathroom | 1200 sqft</p>
+            </div>
+            <div class="property-card">
+                <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\house4.jpg" alt="Property 4">
+                <h2>Property 4</h2>
+                <p>5 bedrooms | 4 bathrooms | 2500 sqft</p>
+            </div>
+            <div class="property-card">
+                <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\house5.jpg" alt="Property 5">
+                <h2>Property 5</h2>
+                <p>3 bedrooms | 2 bathrooms | 1800 sqft</p>
+            </div>
+            <div class="property-card">
+                <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\house6.jpg" alt="Property 6">
+                <h2>Property 6</h2>
+                <p>4 bedrooms | 3 bathrooms | 2200 sqft</p>
+            </div>
+            <!-- Add more property cards as needed -->
+        </div>
+	
+<!-- Interactive Map -->
+        <div id="map"></div>
+
+        <section class="additional-section">
+    <div class="additional-content">
+        <h2>Explore Our Neighborhoods</h2>
+        <p>Discover the vibrant neighborhoods where our properties are located.</p>
+        <div class="neighborhoods">
+            <div class="neighborhood">
+                <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\n1.jpg" alt="Neighborhood 1">
+                <h3>Urban Paradise</h3>
+                <p>Experience the excitement of city living with trendy cafes, bustling streets, and cultural hotspots.</p>
+            </div>
+            <div class="neighborhood">
+                <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\n2.jpg" alt="Neighborhood 2">
+                <h3>Tranquil Suburbs</h3>
+                <p>Find peace and serenity in our suburban neighborhoods, offering spacious homes and lush greenery.</p>
+            </div>
+            <div class="neighborhood">
+                <img src="C:\Users\HP\OneDrive\Pictures\Screenshots\images\n3.jpg" alt="Neighborhood 3">
+                <h3>Coastal Living</h3>
+                <p>Live the coastal lifestyle with stunning ocean views, sandy beaches, and seaside attractions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        <!-- Featured Properties -->
+        <section class="featured-properties">
+            <h2>Featured Properties</h2>
+            <!-- Featured property cards here -->
+        </section>
+
+        <!-- Contact Form -->
+        <section class="contact-form">
+            <h2>Contact Us</h2>
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="Your Name">
+                <input type="email" name="email" placeholder="Your Email">
+                <textarea name="message" placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    
+    <footer>
+        <p>&copy; 2024 Dream Homes Realty. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Map -->
+    <script>
+        // Initialize and display the map
+        function initMap() {
+            // Coordinates for the center of the map (e.g., a city or region)
+            var center = { lat: 40.7128, lng: -74.0060 }; // Example: New York City
+
+            // Create a new map instance
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: center,
+                zoom: 10 // Adjust the zoom level as needed
+            });
+
+            // Add markers for property locations (sample)
+            var marker1 = new google.maps.Marker({
+                position: { lat: 40.7128, lng: -74.0060 }, // Example: Property 1 location
+                map: map,
+                title: 'Property 1'
+            });
+            // Add more markers for other properties as needed
+        }
+    </script>
+
+    <!-- Include the Google Maps API script with your API key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</body>
+</html>
